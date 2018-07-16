@@ -4,47 +4,63 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset='utf-8'>
 
-<div>
-    <h4>Review</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Category.PhoneMaker)
-        </dt>
+    <title>overRide.html</title>
+    <style type="text/css">
+        body {color: red;}
+        p {color: green;}
 
-        <dd>
-            @Html.DisplayFor(model => model.Category.PhoneMaker)
-        </dd>
+    </style>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Author)
-        </dt>
+</head>
+<body>
+    <h2>Details</h2>
 
-        <dd>
-            @Html.DisplayFor(model => model.Author)
-        </dd>
+    <div>
+        <h4>Review</h4>
+        <hr />
+        <div class="card-header-tabs">
+            <p>
+                @Html.DisplayNameFor(model => model.Category.PhoneMaker)
+            </p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.WherePublished)
-        </dt>
+            <p>
+                @Html.DisplayFor(model => model.Category.PhoneMaker)
+            </p>
 
-        <dd>
-            @Html.DisplayFor(model => model.WherePublished)
-        </dd>
+            <p>
+                @Html.DisplayNameFor(model => model.Author)
+            </p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PublishDate)
-        </dt>
+            <p>
+                @Html.DisplayFor(model => model.Author)
+            </p>
 
-        <dd>
-            @Html.DisplayFor(model => model.PublishDate)
-        </dd>
+            <p>
+                @Html.DisplayNameFor(model => model.WherePublished)
+            </p>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ReviewID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+            <p>
+                @Html.DisplayFor(model => model.WherePublished)
+            </p>
+
+            <p>
+                @Html.DisplayNameFor(model => model.PublishDate)
+            </p>
+
+            <p>
+                @Html.DisplayFor(model => model.PublishDate)
+            </p>
+
+        </div>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ReviewID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

@@ -177,6 +177,9 @@
     <Content Include="Images\3-S8s-on-table.jpg" />
     <Content Include="Images\google-pixel-2-back-and-front.jpg" />
     <Content Include="Images\google-pixel-2-logo.jpg" />
+    <Content Include="Images\img_avatar.png" />
+    <Content Include="Images\img_avatar2 %281%29.png" />
+    <Content Include="Images\img_avatar2.png" />
     <Content Include="Images\iphone-front-and-back.jpg" />
     <Content Include="Images\iphone8-apple-logo.jpg" />
     <Content Include="Images\samsung-s8-logo.jpg" />

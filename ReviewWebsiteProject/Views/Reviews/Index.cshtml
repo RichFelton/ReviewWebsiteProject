@@ -4,48 +4,196 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Category.PhoneMaker)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Author)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.WherePublished)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PublishDate)
-        </th>
-        <th></th>
-    </tr>
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            width: 40%;
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category.PhoneMaker)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Author)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.WherePublished)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PublishDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ReviewID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ReviewID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ReviewID })
-        </td>
-    </tr>
-}
+            .card:hover {
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            }
 
-</table>
+        .container {
+            padding: 2px 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Index of Reviews</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                @Html.DisplayNameFor(model => model.Category.PhoneMaker)
+            </div>
+            <div class="col-md-2">
+                @Html.DisplayNameFor(model => model.Author)
+            </div>
+            <div class="col-md-2">
+                @Html.DisplayNameFor(model => model.WherePublished)
+            </div>
+            <div class="col-md-2">
+                @Html.DisplayNameFor(model => model.PublishDate)
+            </div>
+            @*<div></div>*@
+        </div>
+
+        @foreach (var item in Model)
+        {
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.DisplayFor(modelItem => item.Category.PhoneMaker)
+                </div>
+                <div class="col-md-2">
+                    @Html.DisplayFor(modelItem => item.Author)
+                </div>
+                <div class="col-md-2">
+                    @Html.DisplayFor(modelItem => item.WherePublished)
+                </div>
+                <div class="col-md-2">
+                    @Html.DisplayFor(modelItem => item.PublishDate, "Date :", new { style = "display:MM, dd, YYYY;" })
+
+                </div>
+                <div class="col-md-4">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ReviewID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ReviewID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ReviewID })
+                </div>
+                <div>
+
+                </div>
+            </div>
+        }
+
+        </div>
+
+        <div class="container body-content">
+            <h1>Reviews</h1>
+
+
+            <div class="row">
+
+                <div class="col-md-4">  @*Unable to increase width of card, despite column size*@
+                    <h2>Samsung Galaxy S8</h2>
+                    <div class="card">
+                        <img src="~/Images/img_avatar.png" alt="Avatar" style="width:100%">
+                        <div class="container">
+                            <h4><b>CNet Review: Bruce Wayne</b></h4>
+                            <p>In vel lorem elementum ligula congue bibendum vel id sem. Donec congue placerat quam vel facilisis. In hac habitasse platea dictumst. Nulla varius erat lacus, quis dignissim elit mattis eget. Cras mollis faucibus nisl, nec auctor nunc dapibus nec. Vestibulum semper neque vel orci elementum, nec scelerisque nunc tempor.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="~/Images/img_avatar2.png" alt="Avatar" style="width:100%">
+                        <div class="container">
+                            <h4><b>BestBuy: Amanda Kill</b></h4>
+                            <p>Nunc commodo faucibus lectus eget condimentum. Duis consectetur nec nisl vel elementum. Integer laoreet volutpat imperdiet. Curabitur in justo a ligula tempor aliquet. Donec est enim, elementum id tempor vel, pellentesque at velit. Phasellus vel lectus ut tortor facilisis fermentum.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="~/Images/img_avatar2.png" alt="Avatar" style="width:100%">
+                        <div class="container">
+                            <h4><b>Amazon: Diana Prince</b></h4>
+                            <p>Morbi commodo cursus diam, sed lobortis dui vulputate nec. Integer fringilla augue eget risus vehicula, nec commodo ex convallis. Duis quis nisi sed ex sollicitudin lobortis. Nulla facilisi. Aenean massa urna, rutrum sit amet nunc eget, aliquet placerat nunc. </p>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <h4><b>Consumer Reports: Barry Allen</b></h4>
+
+                        <p>Nunc commodo faucibus lectus eget condimentum. Duis consectetur nec nisl vel elementum. Integer laoreet volutpat imperdiet. Curabitur in justo a ligula tempor aliquet. Donec est enim, elementum id tempor vel, pellentesque at velit. Phasellus vel lectus ut tortor facilisis fermentum.</p>
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-4">
+                    <h2>Apple iPhone 8</h2>
+                    <div class="card">
+                        <img src="~/Images/img_avatar.png" alt="Avatar" style="width:100%">
+                        <div class="container">
+                            <h4><b>CNet Review: Bruce Wayne</b></h4>
+                            <p>In vel lorem elementum ligula congue bibendum vel id sem. Donec congue placerat quam vel facilisis. In hac habitasse platea dictumst. Nulla varius erat lacus, quis dignissim elit mattis eget. Cras mollis faucibus nisl, nec auctor nunc dapibus nec. Vestibulum semper neque vel orci elementum, nec scelerisque nunc tempor.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="~/Images/img_avatar2.png" alt="Avatar" style="width:100%">
+                        <div class="container">
+                            <h4><b>BestBuy: Amanda Kill</b></h4>
+                            <p>Nunc commodo faucibus lectus eget condimentum. Duis consectetur nec nisl vel elementum. Integer laoreet volutpat imperdiet. Curabitur in justo a ligula tempor aliquet. Donec est enim, elementum id tempor vel, pellentesque at velit. Phasellus vel lectus ut tortor facilisis fermentum.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="~/Images/img_avatar2.png" alt="Avatar" style="width:100%">
+                        <div class="container">
+                            <h4><b>Amazon: Diana Prince</b></h4>
+                            <p>Morbi commodo cursus diam, sed lobortis dui vulputate nec. Integer fringilla augue eget risus vehicula, nec commodo ex convallis. Duis quis nisi sed ex sollicitudin lobortis. Nulla facilisi. Aenean massa urna, rutrum sit amet nunc eget, aliquet placerat nunc. </p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4><b>Consumer Reports: Barry Allen</b></h4>
+
+                        <p>Nunc commodo faucibus lectus eget condimentum. Duis consectetur nec nisl vel elementum. Integer laoreet volutpat imperdiet. Curabitur in justo a ligula tempor aliquet. Donec est enim, elementum id tempor vel, pellentesque at velit. Phasellus vel lectus ut tortor facilisis fermentum.</p>
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+                    <h2>Google Pixel 2</h2>
+                    <div class="card">
+                        <img src="~/Images/img_avatar.png" alt="Avatar" style="width:100%">
+                        <div class="container">
+                            <h4><b>CNet Review: Bruce Wayne</b></h4>
+                            <p>In vel lorem elementum ligula congue bibendum vel id sem. Donec congue placerat quam vel facilisis. In hac habitasse platea dictumst. Nulla varius erat lacus, quis dignissim elit mattis eget. Cras mollis faucibus nisl, nec auctor nunc dapibus nec. Vestibulum semper neque vel orci elementum, nec scelerisque nunc tempor.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="~/Images/img_avatar2.png" alt="Avatar" style="width:100%">
+                        <div class="container">
+                            <h4><b>BestBuy: Amanda Kill</b></h4>
+                            <p>Nunc commodo faucibus lectus eget condimentum. Duis consectetur nec nisl vel elementum. Integer laoreet volutpat imperdiet. Curabitur in justo a ligula tempor aliquet. Donec est enim, elementum id tempor vel, pellentesque at velit. Phasellus vel lectus ut tortor facilisis fermentum.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="~/Images/img_avatar2.png" alt="Avatar" style="width:100%">
+                        <div class="container">
+                            <h4><b>Amazon: Diana Prince</b></h4>
+                            <p>Morbi commodo cursus diam, sed lobortis dui vulputate nec. Integer fringilla augue eget risus vehicula, nec commodo ex convallis. Duis quis nisi sed ex sollicitudin lobortis. Nulla facilisi. Aenean massa urna, rutrum sit amet nunc eget, aliquet placerat nunc. </p>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <h4><b>Consumer Reports: Barry Allen</b></h4>
+
+                        <p>Nunc commodo faucibus lectus eget condimentum. Duis consectetur nec nisl vel elementum. Integer laoreet volutpat imperdiet. Curabitur in justo a ligula tempor aliquet. Donec est enim, elementum id tempor vel, pellentesque at velit. Phasellus vel lectus ut tortor facilisis fermentum.</p>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+</body>
+</html>
+
+
+
+

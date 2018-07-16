@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ReviewWebsiteProject.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <div>
+        <div>
+            @Html.DisplayNameFor(model => model.PhoneMaker)
+        </div>
+        <div>
+            @Html.DisplayNameFor(model => model.PhoneModel)
+        </div>
+        <div>
+            @Html.DisplayNameFor(model => model.PhonePrice)
+        </div>
+        <div>
+            @Html.DisplayNameFor(model => model.MemorySize)
+        </div>
+        <div>
+            @Html.DisplayNameFor(model => model.ScreenSize)
+        </div>
+        <div>
+            @Html.DisplayNameFor(model => model.OperatingSystem)
+        </div>
+        <div></div>
+    </div>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneMaker)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneModel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhonePrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MemorySize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScreenSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OperatingSystem)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
